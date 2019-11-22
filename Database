@@ -1,0 +1,74 @@
+<pre><font color="#8AE234"><b>cierra@cierra-VirtualBox</b></font>:<font color="#729FCF"><b>~</b></font>$ sudo -i
+[sudo] password for cierra: 
+root@cierra-VirtualBox:~# mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.7.27-0ubuntu0.18.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.
+
+mysql&gt; create database project
+    -&gt; create database project;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;create database project&apos; at line 2
+mysql&gt; create database project:
+    -&gt; 
+    -&gt; exit
+    -&gt; grant all privileges on project to &apos;cierra&apos;@&apos;localhost&apos;
+    -&gt;   
+    -&gt; 
+    -&gt; 
+[1]+  Stopped                 mysql
+root@cierra-VirtualBox:~# mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 4
+Server version: 5.7.27-0ubuntu0.18.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.
+
+mysql&gt; grant all privileges on project. to &apos;cierra&apos;@&apos;localhost&apos; identified by &apos;cierra&apos;;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;to &apos;cierra&apos;@&apos;localhost&apos; identified by &apos;cierra&apos;&apos; at line 1
+mysql&gt;  grant all privileges on wordpress  to &apos;cierra&apos;@&apos;localhost&apos; identifled by &apos;cierra&apos;;
+ERROR 1046 (3D000): No database selected
+mysql&gt;  grant all privileges on project to &apos;cierra&apos;@&apos;localhost&apos; identifled by &apos;cierra&apos;;
+ERROR 1046 (3D000): No database selected
+mysql&gt; &quot; grant all privileges on project.* to &apos;cierra&apos;@&apos;localhost&apos; identifled by &apos;cierra&apos;;
+    &quot;&gt; flush privileges
+    &quot;&gt; exit
+    &quot;&gt; flush privileges;
+    &quot;&gt; exit;
+    &quot;&gt; flush privileges; 
+    &quot;&gt; exit
+    &quot;&gt; 
+[2]+  Stopped                 mysql
+root@cierra-VirtualBox:~# mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 5
+Server version: 5.7.27-0ubuntu0.18.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.
+
+mysql&gt; flush privileges;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql&gt; exit
+Bye
+root@cierra-VirtualBox:~# 
+</pre>
