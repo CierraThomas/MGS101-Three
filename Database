@@ -26,8 +26,6 @@ mysql> show databases;
 +--------------------+
 6 rows in set (0.01 sec)
 
-mysql> create database project;
-ERROR 1007 (HY000): Can't create database 'project'; database exists
 mysql> show databases;
 +--------------------+
 | Database           |
@@ -41,19 +39,6 @@ mysql> show databases;
 +--------------------+
 6 rows in set (0.00 sec)
 
-mysql> -u root -p project < /var/www/html/101Files/ProjectStuff/project-db_2018-12-14.sql
-    -> use project
-    -> use project;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-u root -p project < /var/www/html/101Files/ProjectStuff/project-db_2018-12-14.s' at line 1
-mysql> -u root -p project < /var/www/html/101Files/ProjectStuff/project-db_2018-11-25.sql
-    -> use project;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-u root -p project < /var/www/html/101Files/ProjectStuff/project-db_2018-11-25.s' at line 1
-mysql> -u root -p project </var/www/html/101Files/ProjectStuff/project-db_2018-11-25.sql
-    -> use project;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-u root -p project </var/www/html/101Files/ProjectStuff/project-db_2018-11-25.sq' at line 1
-mysql> -u root -p project </var/www/html/101Files/ProjectStuff/project-db_2018-12-14.sql
-    -> use project;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-u root -p project </var/www/html/101Files/ProjectStuff/project-db_2018-12-14.sq' at line 1
 mysql> use project;
 Database changed
 mysql> source /var/www/html/101Files/ProjectStuff/project-db_2018-12-14.sql;
