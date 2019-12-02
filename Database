@@ -72,3 +72,221 @@ mysql&gt; exit
 Bye
 root@cierra-VirtualBox:~# 
 </pre>
+
+orly@orly-VirtualBox:~$ sudo mysql -u root -p
+[sudo] password for orly: 
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2
+Server version: 5.7.27-0ubuntu0.18.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| project            |
+| sys                |
+| wordpress          |
++--------------------+
+6 rows in set (0.01 sec)
+
+mysql> create database project;
+ERROR 1007 (HY000): Can't create database 'project'; database exists
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| project            |
+| sys                |
+| wordpress          |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> -u root -p project < /var/www/html/101Files/ProjectStuff/project-db_2018-12-14.sql
+    -> use project
+    -> use project;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-u root -p project < /var/www/html/101Files/ProjectStuff/project-db_2018-12-14.s' at line 1
+mysql> -u root -p project < /var/www/html/101Files/ProjectStuff/project-db_2018-11-25.sql
+    -> use project;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-u root -p project < /var/www/html/101Files/ProjectStuff/project-db_2018-11-25.s' at line 1
+mysql> -u root -p project </var/www/html/101Files/ProjectStuff/project-db_2018-11-25.sql
+    -> use project;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-u root -p project </var/www/html/101Files/ProjectStuff/project-db_2018-11-25.sq' at line 1
+mysql> -u root -p project </var/www/html/101Files/ProjectStuff/project-db_2018-12-14.sql
+    -> use project;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-u root -p project </var/www/html/101Files/ProjectStuff/project-db_2018-12-14.sq' at line 1
+mysql> use project;
+Database changed
+mysql> source /var/www/html/101Files/ProjectStuff/project-db_2018-12-14.sql;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+Database changed
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 99 rows affected (0.04 sec)
+Records: 99  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 43 rows affected (0.00 sec)
+Records: 43  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 100 rows affected (0.01 sec)
+Records: 100  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Query OK, 99 rows affected (0.04 sec)
+Records: 99  Duplicates: 0  Warnings: 0
+
+Query OK, 100 rows affected (0.03 sec)
+Records: 100  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from customer;
++--------+------------+--------------+---------------------------+----------+-----------+-------+---------------------------+
+| CustID | FirstName  | LastName     | Address1                  | City     | State     | zip   | email                     |
++--------+------------+--------------+---------------------------+----------+-----------+-------+---------------------------+
+|      3 | Douglass   | Tackle       | 6 Artisan Park            | Buffalo  | NY        | 14275 | dtackleg@wsj.com          |
+|      4 | Garvy      | Orta         | 653 Porter Road           | Buffalo  | NY        | 14267 | gortal@nature.com         |
+|      5 | Berni      | Constantinou | 57552 Evergreen Park      | Buffalo  | NY        | 14263 | bconstantinoun@tumblr.com |
+|      6 | Sinclair   | Meaden       | 578 Straubel Crossing     | Buffalo  | NY        | 14214 | smeadenq@latimes.com      |
+|      7 | Scot       | Beynkn       | 907 David Parkway         | Buffalo  | NY        | 14265 | sbeynkn17@about.com       |
+|      8 | Ara        | Bellow       | 2092 Stang Avenue         | Buffalo  | NY        | 14211 | abellow1b@biglobe.ne.jp   |
+|      9 | Ebba       | Warhurst     | 6232 Merry Alley          | Buffalo  | NY        | 14225 | ewarhurst1c@dyndns.org    |
+|     10 | Vernon     | Cristofolini | 30 Lyons Lane             | Buffalo  | NY        | 14269 | vcristofolini1e@gravatar. |
+|     11 | Frederik   | Le Leu       | 13709 Badeau Crossing     | Buffalo  | NY        | 14225 | fleleu23@indiegogo.com    |
+|     12 | Madelyn    | OConnor      | 1 Twin Pines Plaza        | Buffalo  | NY        | 14205 | modrought2t@telegraph.co. |
+|     13 | Lloyd      | Smallacombe  | 45 Lillian Plaza          | Buffalo  | NY        | 14233 | lsmallacombe37@wikia.com  |
+|     14 | Ermanno    | Stigers      | 3 High Crossing Crossing  | Buffalo  | NY        | 14210 | estigers3t@instagram.com  |
+|     15 | Ileana     | Andrivot     | 56730 Jana Alley          | Buffalo  | NY        | 14210 | iandrivot3v@ucoz.ru       |
+|     16 | Patin      | Sumbler      | 4 Lakewood Pass           | Buffalo  | NY        | 14263 | psumbler4p@com.com        |
+|     17 | Kattie     | Jedrasik     | 5040 Longview Avenue      | Buffalo  | NY        | 14205 | kjedrasik4v@wikimedia.org |
+|     18 | Cleon      | Geeves       | 67 Mesta Crossing         | Buffalo  | NY        | 14225 | cgeeves50@vinaora.com     |
+|     19 | Averil     | Offell       | 706 Northridge Parkway    | Buffalo  | NY        | 14225 | aoffell56@seattletimes.co |
+|     20 | Elsa       | Rylands      | 50592 Red Cloud Way       | Buffalo  | NY        | 14233 | erylands5e@stanford.edu   |
+|     21 | Lek        | Anten        | 936 Cambridge Terrace     | Buffalo  | NY        | 14220 | lanten5p@xrea.com         |
+|     22 | Gwendolin  | De Freitas   | 2 Pawling Plaza           | Buffalo  | NY        | 14276 | gdefreitas5z@wikia.com    |
+|     23 | Melvin     | Otson        | 40 Del Mar Avenue         | Buffalo  | NY        | 14233 | motson67@slate.com        |
+|     24 | Crystie    | Depper       | 71202 Holmberg Lane       | Buffalo  | NY        | 14276 | cdepper6u@twitpic.com     |
+|     25 | Guenevere  | Farlambe     | 8908 Comanche Junction    | Buffalo  | NY        | 14263 | gfarlambe6w@marriott.com  |
+|     26 | Goraud     | Wonfar       | 59952 Armistice Junction  | Buffalo  | NY        | 14210 | gwonfar7g@ycombinator.com |
+|     27 | Arron      | Cockshot     | 07098 Randy Place         | Buffalo  | NY        | 14233 | acockshot8w@usatoday.com  |
+|     28 | Bobbie     | Carruthers   | 31861 Forest Dale Circle  | Buffalo  | NY        | 14215 | bcarruthers8y@japanpost.j |
+|     29 | Hestia     | Biscomb      | 4220 1st Plaza            | Buffalo  | NY        | 14269 | hbiscomb97@wikipedia.org  |
+|     30 | Muffin     | Thraves      | 4324 Carberry Way         | Buffalo  | NY        | 14233 | mthraves99@intel.com      |
+|     31 | Mufi       | Viner        | 9 Corben Point            | Buffalo  | NY        | 14233 | mviner9g@bloglines.com    |
+|     32 | Opalina    | Uman         | 1 Sunnyside Park          | Buffalo  | NY        | 14263 | ouman9h@biblegateway.com  |
+|     33 | Winna      | Larmuth      | 87613 Lyons Point         | Buffalo  | NY        | 14276 | wlarmuthag@vk.com         |
+|     34 | Baudoin    | Astman       | 14369 Brickson Park Alley | Buffalo  | NY        | 14210 | bastmanaw@live.com        |
+|     35 | Dani       | Chellam      | 2173 Helena Crossing      | Buffalo  | NY        | 14220 | dchellamb2@mapquest.com   |
+|     36 | Jonathan   | Aleshintsev  | 726 Beilfuss Crossing     | Buffalo  | NY        | 14225 | jaleshintsevbe@aol.com    |
+|     37 | Hersh      | Skurm        | 79159 Blue Bill Park Way  | Buffalo  | NY        | 14210 | hskurmbt@google.co.jp     |
+|     38 | Anallise   | McDoual      | 12534 Hoepker Lane        | Buffalo  | NY        | 14225 | amcdoualbu@census.gov     |
+|     39 | Johannah   | McGlue       | 865 Jana Junction         | Buffalo  | NY        | 14225 | jmcgluec5@e-recht24.de    |
+|     40 | Daren      | Bossons      | 18 Loeprich Way           | Buffalo  | NY        | 14220 | dbossonscb@cisco.com      |
+|     41 | Harwell    | Ghirardi     | 04 Commercial Trail       | Buffalo  | NY        | 14263 | hghirardicc@qq.com        |
+|     42 | Beatriz    | Duckham      | 637 Graedel Terrace       | Buffalo  | NY        | 14210 | bduckhamcf@harvard.edu    |
+|     43 | Haroun     | Gotfrey      | 0 Basil Park              | Buffalo  | NY        | 14269 | hgotfreyd1@diigo.com      |
+|     44 | Lyn        | Rosborough   | 5355 Gateway Way          | Buffalo  | NY        | 14205 | lrosboroughdf@csmonitor.c |
+|     45 | Zebulon    | Mattersey    | 86 Riverside Road         | Buffalo  | NY        | 14210 | zmatterseydk@github.com   |
+|     46 | Alair      | Casotti      | 3 Summerview Lane         | Buffalo  | NY        | 14210 | acasottids@pcworld.com    |
+|     47 | Jacquelin  | Blowin       | 230 Debs Plaza            | Buffalo  | NY        | 14276 | jblowindx@icq.com         |
+|     48 | Biddie     | Vel          | 5 Moose Parkway           | Buffalo  | NY        | 14205 | bvele0@123-reg.co.uk      |
+|     49 | Camella    | Jewitt       | 89 Northland Junction     | Buffalo  | NY        | 14276 | cjewittep@usgs.gov        |
+|     50 | Spence     | Castellet    | 6182 Hovde Parkway        | Buffalo  | NY        | 14205 | scastelletf9@redcross.org |
+|     51 | Magda      | Fawckner     | 1 Lotheville Alley        | Buffalo  | NY        | 14225 | mfawcknerfh@noaa.gov      |
+|     52 | Blinni     | Gever        | 322 Scoville Road         | Buffalo  | NY        | 14215 | bgeverfj@odnoklassniki.ru |
+|     53 | Libby      | MacEveley    | 4 Blue Bill Park Alley    | Buffalo  | NY        | 14205 | lmaceveleyfs@barnesandnob |
+|     54 | Ricard     | Booi         | 51 Buena Vista Parkway    | Buffalo  | NY        | 14276 | rbooifz@google.com        |
+|     55 | Chrissie   | Calltone     | 49 Crescent Oaks Drive    | Buffalo  | NY        | 14215 | ccalltonegw@opensource.or |
+|     56 | Marc       | Edess        | 5170 School Pass          | Buffalo  | NY        | 14269 | medessh5@ycombinator.com  |
+|     57 | Aimee      | Filippone    | 90649 Thierer Drive       | Buffalo  | NY        | 14205 | afilipponeh7@ox.ac.uk     |
+|     58 | Lari       | Davidovici   | 025 Walton Circle         | Buffalo  | NY        | 14210 | ldavidovicihf@bing.com    |
+|     59 | Purcell    | Luscombe     | 3122 Thierer Terrace      | Buffalo  | NY        | 14205 | pluscombehr@yellowbook.co |
+|     60 | Hilly      | Leban        | 65 Ludington Plaza        | Buffalo  | NY        | 14263 | hlebanhs@twitpic.com      |
+|     61 | Mureil     | Brownsall    | 2193 Debra Trail          | Buffalo  | NY        | 14220 | mbrownsalli6@devhub.com   |
+|     62 | Luke       | Yanne        | 6 Randy Terrace           | Buffalo  | NY        | 14269 | lyannej1@merriam-webster. |
+|     63 | Angeli     | Selwin       | 03553 Nelson Terrace      | Buffalo  | NY        | 14215 | aselwinjc@e-recht24.de    |
+|     64 | Boycie     | Mayho        | 5097 Corry Park           | Buffalo  | NY        | 14205 | bmayhok6@phoca.cz         |
+|     65 | Wilbur     | Headan       | 9 Monica Junction         | Buffalo  | NY        | 14220 | wheadankc@jimdo.com       |
+|     66 | Eleanor    | Garrigan     | 6773 Banding Alley        | Buffalo  | NY        | 14225 | egarrigankd@adobe.com     |
+|     67 | Chrystel   | Lovick       | 37364 Clove Parkway       | Buffalo  | NY        | 14210 | clovickkf@feedburner.com  |
+|     68 | Tania      | Book         | 1 2nd Street              | Buffalo  | NY        | 14276 | tbookki@trellian.com      |
+|     69 | Kaja       | Baggelley    | 5 Kim Point               | Buffalo  | NY        | 14215 | kbaggelleykv@cbc.ca       |
+|     70 | Doralynn   | Dimmer       | 00149 Dawn Way            | Buffalo  | NY        | 14276 | ddimmerl4@creativecommons |
+|     71 | Roland     | Wasling      | 5921 Dorton Lane          | Buffalo  | NY        | 14276 | rwaslinglj@edublogs.org   |
+|     72 | Jody       | Cardenas     | 22 Valley Edge Trail      | Buffalo  | NY        | 14220 | jcardenaslk@cam.ac.uk     |
+|     73 | Euphemia   | Aicken       | 90069 Merrick Park        | Buffalo  | NY        | 14210 | eaickenmc@bing.com        |
+|     74 | Margaret   | Blagbrough   | 958 Canary Center         | Buffalo  | NY        | 14220 | mblagbroughmh@linkedin.co |
+|     75 | Red        | Growden      | 0259 Meadow Valley Juncti | Buffalo  | NY        | 14269 | rgrowdenms@princeton.edu  |
+|     76 | Elysee     | Knoller      | 77350 Mockingbird Park    | Buffalo  | NY        | 14269 | eknollern8@admin.ch       |
+|     77 | Glory      | Vasyagin     | 42 Nevada Avenue          | Buffalo  | NY        | 14205 | gvasyaginnj@ustream.tv    |
+|     78 | Charlena   | Newlan       | 61459 Eliot Hill          | Buffalo  | NY        | 14233 | cnewlannq@cbsnews.com     |
+|     79 | Wynn       | Dovinson     | 68802 Schlimgen Center    | Buffalo  | NY        | 14210 | wdovinsonns@slashdot.org  |
+|     80 | Jeramie    | Pole         | 38004 Doe Crossing Terrac | Buffalo  | NY        | 14220 | jpoleny@rediff.com        |
+|     81 | Levy       | Coveney      | 80 Spenser Hill           | Buffalo  | NY        | 14210 | lcoveneyo4@fema.gov       |
+|     82 | Livvy      | Hebron       | 560 Kensington Hill       | Buffalo  | NY        | 14210 | lhebronp2@chronoengine.co |
+|     83 | Drud       | Whitely      | 41 Columbus Court         | Buffalo  | NY        | 14233 | dwhitelyp7@un.org         |
+|     84 | Isiahi     | Hembry       | 6379 Roxbury Parkway      | Buffalo  | NY        | 14225 | ihembrypx@mozilla.com     |
+|     85 | Craggie    | McGenn       | 2856 Continental Point    | Buffalo  | NY        | 14269 | cmcgennqe@wiley.com       |
+|     86 | Hyacinthia | Pariss       | 85 Hintze Street          | Buffalo  | NY        | 14269 | hparissql@kickstarter.com |
+|     87 | Gladys     | Safell       | 46 Corben Alley           | Buffalo  | NY        | 14210 | gsafellqn@businessinsider |
+|     88 | Brian      | Holyard      | 67 Vernon Trail           | Buffalo  | NY        | 14233 | bholyardr4@wisc.edu       |
+|     89 | Bourke     | Smees        | 3053 Crowley Alley        | Buffalo  | NY        | 14205 | bsmeesrb@shop-pro.jp      |
+|     90 | Errick     | Winser       | 7 Springview Lane         | Buffalo  | NY        | 14233 | ewinserro@php.net         |
+|     92 | Al         | Katerinsky   | 221B Baker St             | Buffalo  | NY        | 14226 | aak29@buffalo.edu         |
+|     93 | Willy      | Walrus       | 99 Delaware Park          | Buffalo  | NY        | 14216 | wwalrus@buffalo.edu       |
+|     94 | John       | Watson       | 221B Baker St             | Buffalo  | NY        | 14213 | jwatson@holmes.org        |
+|     95 | Bilbo      | Baggins      | 125 Bagshot Row           | Hobbiton | The Shire | 1ring | frodo@baggins.edu         |
+|     96 | Elvis      | Pressly      | Lonely Street             | Buffalo  | NY        | 14203 | hhotel@buffalo.edu        |
+|     99 | Wally      | Walrus       | 99 Delaware Park          | Buffalo  | NY        | 14216 | wwalrus@buffalo.edu       |
+|    100 | Andy       | Panda        | 99 Delaware Park          | Buffalo  | NY        | 14216 | apanda@buffalo.edu        |
+|    101 | Amanda     | Panda        | 221B Baker St             | Buffalo  | NY        | 12156 | apanda@buffalo.edu        |
+|    103 | Zippy      | Pinhead      | 1100 Delaware Ave         | Buffalo  | NY        | 14204 | zpinhead@rcross.org       |
+|    104 | Andy       | Montrois     | 221B Baker St             | Buffalo  | NY        | 14216 | ajmontro@buffalo.edu      |
+|    105 | Willy      | Walrus       | 99 Delaware Park          | Buffalo  | NY        | 14216 | wwalrus@buffalo.edu       |
++--------+------------+--------------+---------------------------+----------+-----------+-------+---------------------------+
+99 rows in set (0.00 sec)
+
+
