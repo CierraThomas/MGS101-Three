@@ -546,8 +546,8 @@ mysql>
 
 mysql> exit;
 Bye
-cierra@cierra-VirtualBox:~$ http://127.0.0.1/101Files/ProjectStuff/index.html
-bash: http://127.0.0.1/101Files/ProjectStuff/index.html: No such file or directory
-cierra@cierra-VirtualBox:~$ http://127.0.0.1/101Files/ProjectStuff/index.html/phpmyadmin
-bash: http://127.0.0.1/101Files/ProjectStuff/index.html/phpmyadmin: No such file or directory
-cierra@cierra-VirtualBox:~$ 
+
+phpMyAdmin information:
+
+Username: root
+Password: password
